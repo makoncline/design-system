@@ -1,10 +1,8 @@
 {
-  "name": "design-system",
+  "name": "@packages/design-system",
   "version": "0.0.0",
-  "main": "dist/index.js",
-  "scripts": {
-    "build": "tsc -p tsconfig.json"
-  },
+  "main": "src/index.ts",
+  "scripts": {},
   "dependencies": {
     "@reach/dialog": "^0.17.0",
     "react": "^18.2.0",
