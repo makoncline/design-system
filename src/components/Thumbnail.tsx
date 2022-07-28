@@ -1,5 +1,20 @@
-import React from "react";
+import React, { ComponentProps } from "react";
 import styled from "styled-components";
+
+export function SquareImage({
+  children: child,
+  ...props
+}: Omit<ComponentProps<typeof Thumbnail>, "thumb">) {
+  return (
+    <Thumbnail
+      thumb={false}
+      style={{ "--width": "250px" } as React.CSSProperties}
+      {...props}
+    >
+      {child}
+    </Thumbnail>
+  );
+}
 
 export function Thumbnail({
   children: child,
