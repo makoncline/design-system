@@ -3,12 +3,13 @@ import styled from "styled-components";
 
 export function SquareImage({
   children: child,
+  width = "250px",
   ...props
 }: Omit<ComponentProps<typeof Thumbnail>, "thumb">) {
   return (
     <Thumbnail
       thumb={false}
-      style={{ "--width": "250px" } as React.CSSProperties}
+      style={{ "--width": width } as React.CSSProperties}
       {...props}
     >
       {child}
