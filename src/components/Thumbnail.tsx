@@ -39,9 +39,10 @@ export function Thumbnail({
 const StyledThumbnail = styled.div`
   position: relative;
   width: var(--width, 100px);
-  max-width: var(--size-image);
+  max-width: min(var(--size-image), 100%);
   height: var(--width, 100px);
   max-height: var(--size-image);
+
   aspect-ratio: 1;
 `;
 

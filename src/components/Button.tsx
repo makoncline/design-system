@@ -13,7 +13,10 @@ type Props = {
   styleType?: ButtonType;
   danger?: boolean;
   disabled?: boolean;
-} & React.ButtonHTMLAttributes<HTMLButtonElement>;
+} & (
+  | React.ButtonHTMLAttributes<HTMLButtonElement>
+  | React.AnchorHTMLAttributes<HTMLAnchorElement>
+);
 
 export const Button = React.forwardRef(
   (
