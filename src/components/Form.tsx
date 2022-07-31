@@ -148,13 +148,14 @@ const Form = ({
 }: {
   formId: string;
   onChange?: (context: OnChangeCallbackProps) => void;
-  onSubmit: (context: FormStateContextProps) => void;
+  onSubmit?: (context: FormStateContextProps) => void;
   onValuesChange?: ({
     values,
     setValues,
   }: Pick<FormStateContextProps, "values" | "setValues">) => void;
   children: React.ReactNode;
   validation?: { [key: string]: (...args: any) => string | null };
+  action?: string;
   [key: string]: any;
 }) => {
   const { register, unregister } = useGlobalForm();
@@ -196,10 +197,12 @@ const Form = ({
   };
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-    const allFieldsValid = validateFields();
-    if (allFieldsValid) {
-      onSubmit(contextValue);
+    if (onSubmit) {
+      event.preventDefault();
+      const allFieldsValid = validateFields();
+      if (allFieldsValid) {
+        onSubmit(contextValue);
+      }
     }
   };
 
