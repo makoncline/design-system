@@ -61,6 +61,7 @@ export const Wrapper = styled.nav`
   .nav--open {
     height: 100vh;
   }
+  width: 100%;
   ${above.sm`
     align-items: center;
   `}

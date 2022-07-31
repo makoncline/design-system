@@ -7,7 +7,7 @@ import { Mobile as MoblieNav } from "./";
 type ButtonType = "primary" | "default" | "text";
 
 type Props = {
-  children: string;
+  children: React.ReactNode;
   href?: string;
   block?: boolean;
   styleType?: ButtonType;

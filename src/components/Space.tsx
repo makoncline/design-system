@@ -4,7 +4,7 @@ import styled from "styled-components";
 import { below } from "../utilities";
 type Props = {
   direction?: "column" | "row";
-  gap?: "none" | "small" | "medium" | "large";
+  gap?: "none" | "xsmall" | "small" | "medium" | "large";
   children: React.ReactNode;
   center?: boolean;
   responsive?: boolean;
@@ -28,6 +28,8 @@ const Space = React.forwardRef(
     const gapSize =
       gap === "none"
         ? 0
+        : gap === "xsmall"
+        ? "var(--size-2)"
         : gap === "small"
         ? "var(--size-4)"
         : gap === "medium"
