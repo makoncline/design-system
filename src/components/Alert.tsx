@@ -39,6 +39,7 @@ Alert.Heading = AlertHeading;
 export { Alert };
 
 const StyledAlert = styled.div`
+  width: 100%;
   border: 1px solid var(--border-color);
   background-color: var(--background-color);
   padding: var(--size-4) var(--size-4);

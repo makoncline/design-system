@@ -13,10 +13,8 @@ type Props = {
   styleType?: ButtonType;
   danger?: boolean;
   disabled?: boolean;
-} & (
-  | React.ButtonHTMLAttributes<HTMLButtonElement>
-  | React.AnchorHTMLAttributes<HTMLAnchorElement>
-);
+  [key: string]: any;
+} & React.ButtonHTMLAttributes<HTMLButtonElement>;
 
 export const Button = React.forwardRef(
   (
@@ -81,10 +79,10 @@ export const Button = React.forwardRef(
             style={block ? { width: "100%" } : {}}
           >
             <StyledButton
-              type="submit"
               style={style}
               ref={ref}
               disabled={disabled}
+              type={"submit"}
               {...props}
             >
               {child}
