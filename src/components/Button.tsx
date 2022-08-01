@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 
 import { above } from "../utilities";
-import { Mobile as MoblieNav } from "./";
+import { Wrapper as Nav } from "./";
 
 type ButtonType = "primary" | "default" | "text";
 
@@ -160,7 +160,7 @@ export const IconButton = styled(Button)`
     border-color: transparent;
     color: var(--text-2);
   }
-  ${MoblieNav} & {
+  ${Nav} & {
     ${above.sm`
       display: none;
     `}
