@@ -332,6 +332,7 @@ const Field = ({
           placeholder={placeholder}
           onChange={handleFieldChange}
           autoComplete={autoComplete}
+          required={required}
           {...props}
         />
       ) : (
