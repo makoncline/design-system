@@ -8,7 +8,6 @@ type ButtonType = "primary" | "default" | "text";
 
 type Props = {
   children: React.ReactNode;
-  href?: string;
   block?: boolean;
   styleType?: ButtonType;
   danger?: boolean;
@@ -20,7 +19,6 @@ export const Button = React.forwardRef(
   (
     {
       children: child,
-      href,
       block = false,
       styleType = "default",
       danger = false,
@@ -29,7 +27,6 @@ export const Button = React.forwardRef(
     }: Props,
     ref: React.ForwardedRef<HTMLButtonElement>
   ) => {
-    const isLink = typeof href === "string";
     let border = "var(--text-3)";
     let borderGlint = "var(--text-1)";
     let background = "transparent";
@@ -71,41 +68,23 @@ export const Button = React.forwardRef(
     } as React.CSSProperties;
 
     return (
-      <>
-        {isLink ? (
-          <form
-            action={href}
-            method="get"
-            style={block ? { width: "100%" } : {}}
-          >
-            <StyledButton
-              style={style}
-              ref={ref}
-              disabled={disabled}
-              type={"submit"}
-              {...props}
-            >
-              {child}
-            </StyledButton>
-          </form>
-        ) : (
-          <StyledButton
-            type="button"
-            style={style}
-            ref={ref}
-            disabled={disabled}
-            {...props}
-          >
-            {child}
-          </StyledButton>
-        )}
-      </>
+      <StyledButton
+        type="button"
+        style={style}
+        ref={ref}
+        disabled={disabled}
+        {...props}
+      >
+        {child}
+      </StyledButton>
     );
   }
 );
 Button.displayName = "Button";
 
 const StyledButton = styled.button`
+  margin: unset;
+  text-decoration: none;
   display: inline-flex;
   justify-content: center;
   white-space: nowrap;
